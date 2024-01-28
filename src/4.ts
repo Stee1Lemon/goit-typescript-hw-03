@@ -7,22 +7,18 @@ class Key {
 }
 
 class Person {
-  constructor(private key: Key) {
-    this.key = key;
-  }
+  constructor(protected key: Key) {}
 
-  getKey() {
+  getKey(): Key {
     return this.key;
   }
 }
 
 abstract class House {
-  door: boolean = false;
-  tenants: Person[];
+  public door: boolean = false;
+  public tenants: Person[] = [];
 
-  constructor(protected key: Key) {
-    this.key = key;
-  }
+  constructor(protected key: Key) {}
 
   comeIn(person: Person): void {
     if (this.door) {
